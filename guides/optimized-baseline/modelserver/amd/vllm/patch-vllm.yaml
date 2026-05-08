@@ -16,10 +16,8 @@ spec:
             # Uncomment for distributed tracing
             # - "--otlp-traces-endpoint=http://otel-collector:4317"
             # - "--collect-detailed-traces=all"
-          env:
-            - name: DO_NOT_TRACK
-              value: "1"
-            # Uncomment for distributed tracing env vars
+          # env:
+          #   # Uncomment for distributed tracing env vars
           #   - name: OTEL_SERVICE_NAME
           #     value: "vllm-decode"
           #   - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -44,10 +42,6 @@ spec:
               name: shm
             - mountPath: /.cache
               name: torch-compile-cache
-            # Triton/Inductor caches at /.triton, not writable under
-            # restricted SecurityContexts (e.g. OpenShift).
-            - mountPath: /.triton
-              name: triton-cache
           startupProbe:
             initialDelaySeconds: 15
             periodSeconds: 30
@@ -67,6 +61,4 @@ spec:
             medium: Memory
             sizeLimit: 20Gi
         - name: torch-compile-cache
-          emptyDir: {}
-        - name: triton-cache
           emptyDir: {}

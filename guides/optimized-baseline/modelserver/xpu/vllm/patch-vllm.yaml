@@ -28,10 +28,6 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
-            # Disable vLLM usage telemetry -- its writes to /.config fail
-            # under restricted SecurityContexts (e.g. OpenShift).
-            - name: DO_NOT_TRACK
-              value: "1"
             # - name: VLLM_LOGGING_LEVEL
             #   value: DEBUG
             # Uncomment for distributed tracing env vars
@@ -57,10 +53,6 @@ spec:
           volumeMounts:
             - mountPath: /.cache
               name: torch-compile-cache
-            # Triton/Inductor caches at /.triton, not writable under
-            # restricted SecurityContexts (e.g. OpenShift).
-            - mountPath: /.triton
-              name: triton-cache
           startupProbe:
             initialDelaySeconds: 15
             periodSeconds: 30
@@ -79,6 +71,4 @@ spec:
           resourceClaimTemplateName: intel-claim-template-decode
       volumes:
         - name: torch-compile-cache
-          emptyDir: {}
-        - name: triton-cache
           emptyDir: {}
