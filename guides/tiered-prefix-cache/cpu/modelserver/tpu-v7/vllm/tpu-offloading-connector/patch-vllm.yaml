@@ -60,6 +60,9 @@ spec:
               google.com/tpu: 4
             limits:
               google.com/tpu: 4
+          volumeMounts:
+            - mountPath: /.triton
+              name: triton-cache
           startupProbe:
             initialDelaySeconds: 15
             periodSeconds: 30
@@ -73,3 +76,6 @@ spec:
             periodSeconds: 5
             timeoutSeconds: 2
             failureThreshold: 3
+      volumes:
+        - name: triton-cache
+          emptyDir: {}

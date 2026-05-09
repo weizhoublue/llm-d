@@ -42,6 +42,8 @@ spec:
               name: shm
             - mountPath: /.cache
               name: torch-compile-cache
+            - mountPath: /.triton
+              name: triton-cache
           startupProbe:
             initialDelaySeconds: 15
             periodSeconds: 30
@@ -61,4 +63,6 @@ spec:
             medium: Memory
             sizeLimit: 20Gi
         - name: torch-compile-cache
+          emptyDir: {}
+        - name: triton-cache
           emptyDir: {}

@@ -44,6 +44,8 @@ spec:
           volumeMounts:
             - mountPath: /.cache
               name: torch-compile-cache
+            - mountPath: /.triton
+              name: triton-cache
           startupProbe:
             initialDelaySeconds: 15
             periodSeconds: 30
@@ -59,4 +61,6 @@ spec:
             failureThreshold: 3
       volumes:
         - name: torch-compile-cache
+          emptyDir: {}
+        - name: triton-cache
           emptyDir: {}
