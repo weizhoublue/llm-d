@@ -24,6 +24,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             - name: VLLM_CPU_KVCACHE_SPACE
               value: "32"
             - name: VLLM_CPU_NUM_OF_RESERVED_CPU

@@ -17,6 +17,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             - name: VLLM_ALLOW_RUNTIME_LORA_UPDATING
               value: "True"
             - name: VLLM_PLUGINS

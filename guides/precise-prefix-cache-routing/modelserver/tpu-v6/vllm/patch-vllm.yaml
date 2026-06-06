@@ -58,6 +58,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
           resources:
             limits:
               google.com/tpu: "8"

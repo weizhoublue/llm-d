@@ -26,6 +26,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             # Uncomment for distributed tracing env vars
             # - name: OTEL_SERVICE_NAME
             #   value: "vllm-decode"

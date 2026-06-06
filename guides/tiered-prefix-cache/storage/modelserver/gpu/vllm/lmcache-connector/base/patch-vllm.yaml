@@ -25,6 +25,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             - name: LMCACHE_LOCAL_DISK
               value: "file:///mnt/files-storage/kv-cache/"
             - name: LMCACHE_EXTRA_CONFIG

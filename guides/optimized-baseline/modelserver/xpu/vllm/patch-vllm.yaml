@@ -28,6 +28,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             # - name: VLLM_LOGGING_LEVEL
             #   value: DEBUG
             # Uncomment for distributed tracing env vars

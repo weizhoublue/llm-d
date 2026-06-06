@@ -31,6 +31,7 @@ router:
           secretKeyRef:
             name: llm-d-hf-token
             key: HF_TOKEN
+            optional: true
 
     pluginsConfigFile: "precise-prefix-cache-routing-plugins.yaml"
     pluginsCustomConfig:

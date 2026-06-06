@@ -24,6 +24,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
           resources:
             limits:
               memory: 500Gi

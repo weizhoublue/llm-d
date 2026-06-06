@@ -52,6 +52,7 @@ spec:
                 secretKeyRef:
                   name: llm-d-hf-token
                   key: HF_TOKEN
+                  optional: true
             - name: PROMETHEUS_MULTIPROC_DIR
               value: "/tmp/prometheus_multiproc"
             - name: SKIP_JAX_PRECOMPILE
