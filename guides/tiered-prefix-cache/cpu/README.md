@@ -193,6 +193,8 @@ curl -X POST http://${IP}/v1/completions \
 To clean up the applied deployment components:
 
 ```bash
+export CONNECTOR=offloading-connector # offloading-connector | lmcache-connector
+export INFRA_PROVIDER=base # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete -n ${NAMESPACE} -k guides/tiered-prefix-cache/cpu/modelserver/gpu/vllm/${CONNECTOR}/${INFRA_PROVIDER}
 kubectl delete namespace ${NAMESPACE}

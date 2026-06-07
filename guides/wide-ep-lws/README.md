@@ -214,8 +214,9 @@ envsubst < 2048_concurrent_2k_isl_2k_osl.yaml > config.yaml
 To remove the deployed components:
 
 ```bash
+export INFRA_PROVIDER=gke # options: gke, coreweave, dgx-cloud-gb200
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
-kubectl delete -n ${NAMESPACE} -k guides/${GUIDE_NAME}/modelserver/<gke|coreweave>
+kubectl delete -n ${NAMESPACE} -k guides/${GUIDE_NAME}/modelserver/gpu/vllm/${INFRA_PROVIDER}
 ```
 
 ## Benchmarking Report

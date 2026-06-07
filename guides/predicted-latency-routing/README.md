@@ -191,6 +191,7 @@ Once traffic is flowing, confirm three things in Prometheus (see the [architectu
 To remove the deployed components:
 
 ```bash
+export INFRA_PROVIDER=base # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete  -n ${NAMESPACE} -k guides/optimized-baseline/modelserver/gpu/vllm/${INFRA_PROVIDER}
 kubectl delete namespace ${NAMESPACE}

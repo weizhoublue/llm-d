@@ -175,6 +175,7 @@ curl -X POST http://${IP}/v1/chat/completions \
 
 To tear down and clean up all deployed resources:
 ```bash
+export INFRA_PROVIDER=gke # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete -n ${NAMESPACE} -k guides/multimodal/${GUIDE_NAME}/modelserver/gpu/vllm/${INFRA_PROVIDER}/
 kubectl delete namespace ${NAMESPACE}

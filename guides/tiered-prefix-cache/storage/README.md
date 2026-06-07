@@ -407,8 +407,10 @@ In this scenario, the total KV cache size significantly exceeds the combined cap
 To clean and remove applied deployments:
 
 ```bash
+export CONNECTOR=llm-d-fs-connector # llm-d-fs-connector | lmcache-connector
+export INFRA_PROVIDER=base # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete -f guides/tiered-prefix-cache/storage/manifests/pvc.yaml -n ${NAMESPACE}
-kubectl delete -n ${NAMESPACE} -k guides/tiered-prefix-cache/storage/modelserver/gpu/vllm/${CONNECTOR}
+kubectl delete -n ${NAMESPACE} -k guides/tiered-prefix-cache/storage/modelserver/gpu/vllm/${CONNECTOR}/${INFRA_PROVIDER}
 kubectl delete namespace ${NAMESPACE}
 ```

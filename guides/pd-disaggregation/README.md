@@ -227,6 +227,7 @@ envsubst < 20_1_isl_osl.yaml > config.yaml
 To remove the deployed components:
 
 ```bash
+export INFRA_PROVIDER=base # base | coreweave | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete -n ${NAMESPACE} -k guides/${GUIDE_NAME}/modelserver/gpu/vllm/${INFRA_PROVIDER}
 ```

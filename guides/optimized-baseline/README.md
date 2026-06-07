@@ -255,6 +255,7 @@ envsubst < guide.yaml > config.yaml
 To remove the deployed components:
 
 ```bash
+export INFRA_PROVIDER=base # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete  -n ${NAMESPACE} -k guides/${GUIDE_NAME}/modelserver/gpu/vllm/${INFRA_PROVIDER}
 kubectl delete namespace ${NAMESPACE}

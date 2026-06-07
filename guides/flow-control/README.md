@@ -331,9 +331,10 @@ The Flow Control layer exposes detailed metrics to track queuing dynamics. Pleas
 To remove the deployed components:
 
 ```bash
+export INFRA_PROVIDER=base # base | gke
 helm uninstall ${GUIDE_NAME} -n ${NAMESPACE}
 kubectl delete -f guides/${GUIDE_NAME}/objectives.yaml -n ${NAMESPACE}
-kubectl kustomize guides/optimized-baseline/modelserver/gpu/vllm/ \
+kubectl kustomize guides/optimized-baseline/modelserver/gpu/vllm/${INFRA_PROVIDER}/ \
   | sed "s/optimized-baseline/${GUIDE_NAME}/g" \
   | kubectl delete -n ${NAMESPACE} -f -
 ```
