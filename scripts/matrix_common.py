@@ -70,6 +70,7 @@ GUIDES = [
     ("Predicted Latency-Based Routing", "../guides/predicted-latency-routing/README.md", "predicted-latency-routing", None),
     ("Workload Autoscaling (WVA)", "../guides/workload-autoscaling/README.md", "wva", None),
     ("Fast Model Actuation (FMA)", "../guides/fast-model-actuation/README.md", "fast-model-actuation", None),
+    ("Flow Control", "../guides/flow-control/README.md", "flow-control", None),
 ]
 
 # ---------------------------------------------------------------------------
