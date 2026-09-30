@@ -166,6 +166,7 @@ spec:
                     exec vllm serve $MTP_ARGS --kv-cache-dtype fp8 \
                       zai-org/GLM-5.2-FP8 \
                       --port 8000 \
+                      --enable-scale-out \
                       --trust-remote-code \
                       --gpu-memory-utilization $GPU_MEM_UTIL \
                       --max-model-len ${MAX_MODEL_LEN:-auto} \
